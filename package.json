@@ -102,6 +102,7 @@
     "font-awesome": "^4.6.3",
     "postcss": "^5.1.2",
     "react": "^15.3.1",
+    "react-desktop": "^0.2.13",
     "react-dom": "^15.3.1",
     "react-redux": "^4.4.5",
     "react-router": "^2.7.0",
