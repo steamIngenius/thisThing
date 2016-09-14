@@ -5,10 +5,10 @@ import { hashHistory } from 'react-router';
 import { routerMiddleware, push } from 'react-router-redux';
 import rootReducer from '../reducers';
 
-import * as counterActions from '../actions/counter';
+import * as loginActions from '../actions/login';
 
 const actionCreators = {
-  ...counterActions,
+  ...loginActions,
   push,
 };
 
