@@ -7,7 +7,10 @@ import * as LoginActions from '../actions/login';
 function mapStateToProps(state) {
   return {
     loggingIn: state.login.loggingIn,
-    serverField: state.login.serverField
+    serverField: state.login.serverField,
+    userField: state.login.userField,
+    passwordField: state.login.passwordField,
+    sessionId: state.login.sessionId
   };
 }
 
