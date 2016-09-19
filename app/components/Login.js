@@ -1,25 +1,42 @@
 import React, { Component, PropTypes } from 'react';
-import { TextInput, Button } from 'react-desktop/windows';
+import { TextInput, Button, ProgressCircle } from 'react-desktop/macOs';
 
 class Login extends Component {
   static propTypes = {
     login: PropTypes.func.isRequired,
-    resetFields: PropTypes.func.isRequired
+    resetFields: PropTypes.func.isRequired,
+    loggingIn: PropTypes.bool.isRequired,
+    setServerField: PropTypes.func.isRequired,
+    serverField: PropTypes.string.isRequired
   };
 
   render() {
-    const { login, resetFields } = this.props;
+    const {
+      login,
+      resetFields,
+      loggingIn,
+      serverField,
+      setServerField
+    } = this.props;
 
     return (
-      <div>
-        <TextInput label="server" />
-        <TextInput label="username" />
-        <TextInput label="password" />
-        <Button onClick={resetFields} color="">Reset</Button>
-        <Button onClick={login} color="green">Login</Button>
-      </div>
+      loggingIn
+        ? <ProgressCircle color="grey" size={50} />
+        : <div>
+            <TextInput
+              value={serverField}
+              width="200"
+              label="Server"
+              onChange={(e) => setServerField(e.target.value)}
+            />
+            <TextInput width="200" label="Username" />
+            <TextInput width="200" label="Password" />
+            <Button onClick={resetFields}>Reset</Button>
+            <Button onClick={login} color="green">Login</Button>
+        </div>
     );
   }
 }
 
 export default Login;
+
